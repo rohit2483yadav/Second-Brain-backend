@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+import dotenv from 'dotenv';
+dotenv.config();
 
-
-mongoose.connect('mongodb+srv://rohit:rohit@cluster0.kouil.mongodb.net/Second_BRAIN')
-
+mongoose.connect(process.env.mongoString || "");
 
 const UserSchema=new Schema({
     username: {type:String , required:true, unique:true},
